@@ -1,3 +1,5 @@
 # projek_uts
 
-A new Flutter project.
+Kelompok:
+-Mohammad Usman Asegaf
+-
