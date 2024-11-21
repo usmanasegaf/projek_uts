@@ -2,6 +2,6 @@
 
 Kelompok:
 
--Mohammad Usman Asegaf
+- Mohammad Usman Asegaf
 
 -
