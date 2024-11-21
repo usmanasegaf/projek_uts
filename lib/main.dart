@@ -87,7 +87,7 @@ class _LogicGameState extends State<LogicGame> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'Skor Anda: $score/${questions.length}',
+                    'Skor Anda: ${score * 25}/${questions.length * 25}',
                     style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(height: 20),
@@ -110,15 +110,21 @@ class _LogicGameState extends State<LogicGame> {
                   ),
                   SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton(
-                        onPressed: () => checkAnswer(true),
-                        child: Text('Benar'),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ElevatedButton(
+                          onPressed: () => checkAnswer(true),
+                          child: Text('Benar'),
+                        ),
                       ),
-                      ElevatedButton(
-                        onPressed: () => checkAnswer(false),
-                        child: Text('Salah'),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ElevatedButton(
+                          onPressed: () => checkAnswer(false),
+                          child: Text('Salah'),
+                        ),
                       ),
                     ],
                   ),
