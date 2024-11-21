@@ -1,11 +1,12 @@
 # PROJEK UTS PEMROGRAMAN MOBILE 2
 
-* MENGGUNAKAN FLUTTER *
+### MENGGUNAKAN FLUTTER 
 
-** Sebuah projek yang dibagi 5 bagian untuk keadilan pengerjaan dan partisipasi setiap anggota **
+#### Sebuah projek yang dibagi 5 bagian untuk keadilan pengerjaan dan partisipasi setiap anggota
 
-Kelompok:
+#### Kelompok:
 
 - Mohammad Usman Asegaf
 
 -
+####
