@@ -58,12 +58,13 @@ class _LogicGameState extends State<LogicGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Permainan Logika: Usman'),
+        title: Text('Permainan Logika'),
       ),
       body: gameFinished
           ? Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     'Permainan Selesai!',

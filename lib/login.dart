@@ -57,32 +57,32 @@ class LoginPage extends StatelessWidget {
                                   passwordController.text == "2155") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainApp();
+                                  return MainNavigation();
                                 }));
                               } else if (userNameController.text ==
                                       "Syamsu Nuryaman" &&
                                   passwordController.text == "2255") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainApp();
+                                  return MainNavigation();
                                 }));
                               } else if (userNameController.text == "3" &&
                                   passwordController.text == "333") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainApp();
+                                  return MainNavigation();
                                 }));
                               } else if (userNameController.text == "4" &&
                                   passwordController.text == "444") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainApp();
+                                  return MainNavigation();
                                 }));
                               } else if (userNameController.text == "5" &&
                                   passwordController.text == "555") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainApp();
+                                  return MainNavigation();
                                 }));
                               } else if (userNameController.text == "" ||
                                   passwordController.text == "") {
