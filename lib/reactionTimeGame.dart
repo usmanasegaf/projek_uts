@@ -6,10 +6,7 @@ import 'dart:math';
 class ReactionTimeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Reaction Time Tester',
-      home: ReactionTester(),
-    );
+    return ReactionTester();
   }
 }
 
@@ -52,6 +49,7 @@ class _ReactionTesterState extends State<ReactionTester> {
       _waitingForTap = false;
     });
 
+    // Tampilkan dialog dan tunggu hingga dialog selesai sebelum memulai ronde berikutnya
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
@@ -60,14 +58,16 @@ class _ReactionTesterState extends State<ReactionTester> {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop();
-              _startRound();
+              Navigator.of(context).pop(); // Menutup dialog
             },
             child: Text('Next Round'),
           ),
         ],
       ),
-    );
+    ).then((_) {
+      // Memastikan dialog sudah tertutup sebelum memulai ronde baru
+      _startRound();
+    });
   }
 
   double _calculateAverage() {

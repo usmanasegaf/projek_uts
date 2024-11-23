@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projek_uts/logicGame.dart';
 import 'package:projek_uts/login.dart';
+import 'package:projek_uts/reactionTimeGame.dart';
 
 void main() {
   runApp(const MainApp());
@@ -29,7 +30,7 @@ class _MainNavigationState extends State<MainNavigation> {
   // List of pages
   final List<Widget> _pages = [
     Center(child: LogicGame()),
-    Center(child: Text("Halaman Kedua", style: TextStyle(fontSize: 24))),
+    Center(child: ReactionTimeApp()),
     Center(child: Text("Halaman Ketiga", style: TextStyle(fontSize: 24))),
   ];
 
@@ -54,7 +55,7 @@ class _MainNavigationState extends State<MainNavigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
-            label: 'Halaman 2',
+            label: 'Reaction Time Game',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
