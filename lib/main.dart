@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projek_uts/logicGame.dart';
 import 'package:projek_uts/login.dart';
+import 'package:projek_uts/mathGame.dart';
 import 'package:projek_uts/reactionTimeGame.dart';
 
 void main() {
@@ -31,7 +32,7 @@ class _MainNavigationState extends State<MainNavigation> {
   final List<Widget> _pages = [
     Center(child: LogicGame()),
     Center(child: ReactionTimeApp()),
-    Center(child: Text("Halaman Ketiga", style: TextStyle(fontSize: 24))),
+    Center(child: MathGameApp()),
     Center(child: Text("Halaman Keempat", style: TextStyle(fontSize: 24))),
   ];
 
