@@ -2,7 +2,7 @@
 
 ### MENGGUNAKAN FLUTTER 
 
-#### Sebuah projek yang dibagi 5 bagian untuk keadilan pengerjaan dan partisipasi setiap anggota
+#### Seluruh Anggota telah berkontribusi dengan baik dan memiliki kontribusi masing masing khususnya per-page
 
 #### Kelompok:
 
