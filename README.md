@@ -14,3 +14,11 @@
 
 - Irwan Kurniawan
 ####
+
+Issues and Bugs:
+
+Page Logic: Soal terlalu sedikit
+
+Page Reaction: Game tidak berhenti / memulai ulang saat beganti page
+
+Page Math: Tidak ada batas berapa banyak soal, saat ke page lain waktu tetap jalan dan soal berganti
