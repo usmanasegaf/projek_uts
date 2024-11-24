@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projek_uts/logicGame.dart';
 import 'package:projek_uts/login.dart';
 import 'package:projek_uts/mathGame.dart';
+import 'package:projek_uts/memoryGames.dart';
 import 'package:projek_uts/reactionTimeGame.dart';
 import 'package:projek_uts/wordsGame.dart';
 
@@ -35,7 +36,7 @@ class _MainNavigationState extends State<MainNavigation> {
     Center(child: ReactionTimeApp()),
     Center(child: MathGameApp()),
     Center(child: GameScreen()),
-    Center(child: GameScreen()),
+    Center(child: MemoryGameApp()),
   ];
 
   @override
@@ -68,11 +69,11 @@ class _MainNavigationState extends State<MainNavigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.abc),
-            label: 'Tebak kata',
+            label: 'Words games',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.ac_unit),
-            label: 'Tebak kata',
+            label: 'Memory games',
           ),
         ],
       ),
