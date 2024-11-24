@@ -56,15 +56,15 @@ class _MainNavigationState extends State<MainNavigation> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.memory),
             label: 'Logic Game',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book),
+            icon: Icon(Icons.timer),
             label: 'Reaction Time Game',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.info),
+            icon: Icon(Icons.calculate),
             label: 'Math game',
           ),
           BottomNavigationBarItem(
@@ -72,7 +72,7 @@ class _MainNavigationState extends State<MainNavigation> {
             label: 'Words games',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.ac_unit),
+            icon: Icon(Icons.book),
             label: 'Memory games',
           ),
         ],
