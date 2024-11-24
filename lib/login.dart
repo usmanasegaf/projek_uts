@@ -66,19 +66,19 @@ class LoginPage extends StatelessWidget {
                                     MaterialPageRoute(builder: (context) {
                                   return MainNavigation();
                                 }));
-                              } else if (userNameController.text == "3" &&
+                              } else if (userNameController.text == "Saepul" &&
                                   passwordController.text == "333") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
                                   return MainNavigation();
                                 }));
-                              } else if (userNameController.text == "4" &&
+                              } else if (userNameController.text == "Irwan" &&
                                   passwordController.text == "444") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
                                   return MainNavigation();
                                 }));
-                              } else if (userNameController.text == "5" &&
+                              } else if (userNameController.text == "Ismi" &&
                                   passwordController.text == "555") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
