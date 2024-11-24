@@ -3,6 +3,7 @@ import 'package:projek_uts/logicGame.dart';
 import 'package:projek_uts/login.dart';
 import 'package:projek_uts/mathGame.dart';
 import 'package:projek_uts/reactionTimeGame.dart';
+import 'package:projek_uts/wordsGame.dart';
 
 void main() {
   runApp(const MainApp());
@@ -33,7 +34,8 @@ class _MainNavigationState extends State<MainNavigation> {
     Center(child: LogicGame()),
     Center(child: ReactionTimeApp()),
     Center(child: MathGameApp()),
-    Center(child: Text("Halaman Keempat", style: TextStyle(fontSize: 24))),
+    Center(child: GameScreen()),
+    Center(child: GameScreen()),
   ];
 
   @override
@@ -62,11 +64,15 @@ class _MainNavigationState extends State<MainNavigation> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
-            label: 'Halaman 3',
+            label: 'Math game',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.abc),
+            label: 'Tebak kata',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.ac_unit),
-            label: 'Halaman 4',
+            label: 'Tebak kata',
           ),
         ],
       ),
