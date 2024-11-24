@@ -32,6 +32,7 @@ class _MainNavigationState extends State<MainNavigation> {
     Center(child: LogicGame()),
     Center(child: ReactionTimeApp()),
     Center(child: Text("Halaman Ketiga", style: TextStyle(fontSize: 24))),
+    Center(child: Text("Halaman Keempat", style: TextStyle(fontSize: 24))),
   ];
 
   @override
@@ -42,6 +43,7 @@ class _MainNavigationState extends State<MainNavigation> {
         children: _pages,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: (int index) {
           setState(() {
@@ -60,6 +62,10 @@ class _MainNavigationState extends State<MainNavigation> {
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
             label: 'Halaman 3',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.ac_unit),
+            label: 'Halaman 4',
           ),
         ],
       ),
