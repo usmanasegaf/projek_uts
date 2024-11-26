@@ -11,8 +11,25 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   final List<Map<String, String>> questions = [
     {"hint": "Ibu kota Indonesia", "answer": "Jakarta"},
-    {"hint": "Hewan berkaki empat, menggonggong", "answer": "Anjing"},
+    {
+      "hint":
+          "Hewan yang dikenal dengan kelambatannya dan sering tidur sepanjang hari",
+      "answer": "Kungkang"
+    },
     {"hint": "Planet tempat kita tinggal", "answer": "Bumi"},
+    {
+      "hint": "Benda yang digunakan untuk menulis di papan tulis",
+      "answer": "Spidol"
+    },
+    {"hint": "Hewan terbesar di dunia, hidup di laut", "answer": "Paus"},
+    {"hint": "Nama presiden pertama Indonesia", "answer": "Soekarno"},
+    {"hint": "Benua terbesar di dunia", "answer": "Asia"},
+    {
+      "hint": "Benda yang digunakan untuk menghubungkan dua bagian",
+      "answer": "Jembatan"
+    },
+    {"hint": "Bunga nasional Indonesia", "answer": "Melati"},
+    {"hint": "Alat musik yang dipetik, memiliki enam senar", "answer": "Gitar"},
   ];
 
   int currentQuestionIndex = 0;
