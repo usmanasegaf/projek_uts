@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
-
 import 'dart:async';
 import 'dart:math';
 
-class ReactionTimeApp extends StatelessWidget {
+class ReactionTimeApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return ReactionTester();
-  }
+  _ReactionTimeAppState createState() => _ReactionTimeAppState();
 }
 
-class ReactionTester extends StatefulWidget {
-  @override
-  _ReactionTesterState createState() => _ReactionTesterState();
-}
-
-class _ReactionTesterState extends State<ReactionTester> {
+class _ReactionTimeAppState extends State<ReactionTimeApp> {
   Color _screenColor = Colors.grey;
   late Timer _timer;
   DateTime? _startTime;
   List<int> _reactionTimes = [];
   bool _waitingForTap = false;
+  bool _gameStarted = false;
 
   void _startRound() {
     setState(() {
       _screenColor = Colors.grey;
       _waitingForTap = false;
+      _gameStarted = true;
     });
 
-    // Random delay between 2 to 5 seconds
     final delay = Random().nextInt(3000) + 2000;
 
     _timer = Timer(Duration(milliseconds: delay), () {
@@ -49,7 +42,6 @@ class _ReactionTesterState extends State<ReactionTester> {
       _waitingForTap = false;
     });
 
-    // Tampilkan dialog dan tunggu hingga dialog selesai sebelum memulai ronde berikutnya
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
@@ -58,14 +50,13 @@ class _ReactionTesterState extends State<ReactionTester> {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop(); // Menutup dialog
+              Navigator.of(context).pop();
             },
             child: Text('Next Round'),
           ),
         ],
       ),
     ).then((_) {
-      // Memastikan dialog sudah tertutup sebelum memulai ronde baru
       _startRound();
     });
   }
@@ -73,12 +64,6 @@ class _ReactionTesterState extends State<ReactionTester> {
   double _calculateAverage() {
     if (_reactionTimes.isEmpty) return 0.0;
     return _reactionTimes.reduce((a, b) => a + b) / _reactionTimes.length;
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _startRound();
   }
 
   @override
@@ -109,11 +94,21 @@ class _ReactionTesterState extends State<ReactionTester> {
                   SizedBox(height: 20),
                 ],
                 Text(
-                  _waitingForTap
-                      ? 'Tap Now!'
-                      : 'Wait for the screen to turn green!',
+                  _gameStarted
+                      ? (_waitingForTap
+                          ? 'Tap Now!'
+                          : 'Wait for the screen to turn green!')
+                      : 'Tekan tombol untuk memulai ronde',
                   style: TextStyle(fontSize: 18),
                 ),
+                SizedBox(height: 20),
+                // <-------- Button will disappear after the game starts
+                if (!_gameStarted) ...[
+                  ElevatedButton(
+                    onPressed: _startRound,
+                    child: Text('Start Round'),
+                  ),
+                ],
               ],
             ),
           ),
