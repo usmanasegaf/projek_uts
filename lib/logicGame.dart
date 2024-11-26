@@ -28,6 +28,32 @@ class _LogicGameState extends State<LogicGame> {
           'Jika P adalah bilangan genap, maka P + 1 adalah bilangan ganjil.',
       'answer': true,
     },
+    {
+      'question': 'Semua angka 2 adalah bilangan prima.',
+      'answer': true,
+    },
+    {
+      'question': 'Jika A > B dan B > C, maka A > C.',
+      'answer': true,
+    },
+    {
+      'question':
+          'Jika P adalah bilangan prima, maka P + 2 adalah bilangan prima.',
+      'answer': false,
+    },
+    {
+      'question':
+          'Jika suatu bilangan habis dibagi 2, maka bilangan tersebut genap.',
+      'answer': true,
+    },
+    {
+      'question': 'Bilangan negatif tidak bisa menjadi bilangan prima.',
+      'answer': true,
+    },
+    {
+      'question': 'Semua bilangan ganjil adalah bilangan komposit.',
+      'answer': false,
+    },
   ];
 
   void checkAnswer(bool userAnswer) {
@@ -72,7 +98,7 @@ class _LogicGameState extends State<LogicGame> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'Skor Anda: ${score * 25}/${questions.length * 25}',
+                    'Skor Anda: ${score * 10}/${questions.length * 10}',
                     style: TextStyle(fontSize: 20),
                   ),
                   SizedBox(height: 20),
