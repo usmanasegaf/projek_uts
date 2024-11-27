@@ -30,20 +30,15 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
   int currentLevel = 1;
   int userIndex = 0;
   bool isUserTurn = false;
-  bool showSequence = true;
-
-  @override
-  void initState() {
-    super.initState();
-    startNewLevel();
-  }
+  bool showSequence = false; // <--- Default adalah false
+  bool gameStarted = false; // <--- Flag untuk kontrol tombol "Start Game"
 
   void startNewLevel() {
     setState(() {
       showSequence = true;
       isUserTurn = false;
       userIndex = 0;
-      sequence.add(Random().nextInt(9)); // Angka acak 0-9
+      sequence.add(Random().nextInt(9));
     });
 
     Future.delayed(Duration(seconds: currentLevel + 1), () {
@@ -66,7 +61,6 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
         startNewLevel();
       }
     } else {
-      // Game over
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
@@ -90,8 +84,15 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
     setState(() {
       sequence.clear();
       currentLevel = 1;
-      startNewLevel();
+      gameStarted = false; // <--- Reset flag saat game diulang
     });
+  }
+
+  void startGame() {
+    setState(() {
+      gameStarted = true; // <--- Set flag menjadi true saat tombol ditekan
+    });
+    startNewLevel();
   }
 
   @override
@@ -104,7 +105,13 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (showSequence) ...[
+            if (!gameStarted) ...[
+              // <--- Tombol hanya muncul sebelum game dimulai
+              ElevatedButton(
+                onPressed: startGame,
+                child: const Text('Start Game'),
+              ),
+            ] else if (showSequence) ...[
               const Text(
                 'Ingat Urutan Ini:',
                 style: TextStyle(fontSize: 18),
