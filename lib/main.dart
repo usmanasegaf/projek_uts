@@ -38,6 +38,7 @@ class _MainNavigationState extends State<MainNavigation> {
   // State untuk mengganti halaman
   Key memoryGameKey = UniqueKey();
   Key mathGameKey = UniqueKey();
+  Key reactGameKey = UniqueKey();
   // List of pages
   late List<Widget> _pages;
 
@@ -46,25 +47,11 @@ class _MainNavigationState extends State<MainNavigation> {
     super.initState();
     _pages = [
       const LogicGame(),
-      const ReactionTimeApp(),
+      ReactionTimeApp(key: reactGameKey),
       MathGameApp(key: mathGameKey),
       const WordsGameScreen(),
-      MemoryGamePage(key: memoryGameKey), // <--- Gunakan key unik
+      MemoryGamePage(key: memoryGameKey),
     ];
-  }
-
-  void resetMemoryGamePage() {
-    setState(() {
-      memoryGameKey = UniqueKey(); // Membuat key baru untuk rebuild halaman
-      _pages[4] = MemoryGamePage(key: memoryGameKey); // Reset halaman
-    });
-  }
-
-  void resetMathGameApp() {
-    setState(() {
-      mathGameKey = UniqueKey();
-      _pages[2] = MathGameApp(key: mathGameKey);
-    });
   }
 
   @override

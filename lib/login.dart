@@ -99,7 +99,7 @@ class LoginPage extends StatelessWidget {
                               } else
                                 // ignore: curly_braces_in_flow_control_structures
                                 (Fluttertoast.showToast(
-                                    msg: "Username Tidak Terdaftar",
+                                    msg: "Username/Password salah",
                                     toastLength: Toast.LENGTH_SHORT,
                                     gravity: ToastGravity.CENTER,
                                     timeInSecForIosWeb: 2,

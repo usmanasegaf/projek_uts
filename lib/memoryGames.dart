@@ -26,7 +26,7 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
       sequence.add(Random().nextInt(9));
     });
 
-    Future.delayed(const Duration(milliseconds: 1500), () {
+    Future.delayed(const Duration(milliseconds: 1350), () {
       if (mounted) {
         setState(() {
           showSequence = false;

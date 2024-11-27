@@ -76,16 +76,14 @@ class _GameScreenState extends State<WordsGameScreen> {
         showFireworks = false;
         currentQuestionIndex++;
         userAnswer = "";
-        if (currentQuestionIndex >= questions.length) {
-          message = "Permainan selesai! Kamu menang!";
-        }
+
         Future.delayed(const Duration(seconds: 2));
         fireworksController.fireMultipleRockets(
           // Fire a random number of rockets between 5 and 20
           minRockets: 5,
-          maxRockets: 20,
+          maxRockets: 10,
           // Fire all the rockets within this launch window
-          launchWindow: const Duration(milliseconds: 600),
+          launchWindow: const Duration(milliseconds: 400),
         );
       });
     } else {

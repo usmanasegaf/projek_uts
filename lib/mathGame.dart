@@ -24,8 +24,8 @@ class MathGameScreen extends StatefulWidget {
 class _MathGameScreenState extends State<MathGameScreen> {
   int _score = 0;
   // ignore: prefer_final_fields
-  int _timePerQuestion = 6; // waktu untuk menjawab setiap soal dalam detik
-  int _currentTime = 6;
+  int _timePerQuestion = 5; // waktu untuk menjawab setiap soal dalam detik
+  int _currentTime = 5;
   late Timer _timer;
 
   late int _number1;
@@ -118,7 +118,7 @@ class _MathGameScreenState extends State<MathGameScreen> {
   void _resetGame() {
     setState(() {
       _score = 0;
-      _startTimer();
+      _gameStarted = false;
       _currentTime = _timePerQuestion;
       _questionCount = 0; // Reset question count
     });
