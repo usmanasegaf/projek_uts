@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -24,7 +26,7 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
       sequence.add(Random().nextInt(9));
     });
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       if (mounted) {
         setState(() {
           showSequence = false;

@@ -51,38 +51,39 @@ class LoginPage extends StatelessWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: ElevatedButton(
                             onPressed: () {
+                              // ignore: avoid_print
                               print(userNameController.text);
                               if (userNameController.text ==
                                       "Mohammad Usman Asegaf" &&
                                   passwordController.text == "2155") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainNavigation();
+                                  return const MainNavigation();
                                 }));
                               } else if (userNameController.text ==
                                       "Syamsu Nuryaman" &&
                                   passwordController.text == "2255") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainNavigation();
+                                  return const MainNavigation();
                                 }));
                               } else if (userNameController.text == "Saepul" &&
                                   passwordController.text == "333") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainNavigation();
+                                  return const MainNavigation();
                                 }));
                               } else if (userNameController.text == "Irwan" &&
                                   passwordController.text == "444") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainNavigation();
+                                  return const MainNavigation();
                                 }));
                               } else if (userNameController.text == "Ismi" &&
                                   passwordController.text == "555") {
                                 Navigator.pushReplacement(context,
                                     MaterialPageRoute(builder: (context) {
-                                  return MainNavigation();
+                                  return const MainNavigation();
                                 }));
                               } else if (userNameController.text == "" ||
                                   passwordController.text == "") {
@@ -96,6 +97,7 @@ class LoginPage extends StatelessWidget {
                                     textColor: Colors.white,
                                     fontSize: 16.0);
                               } else
+                                // ignore: curly_braces_in_flow_control_structures
                                 (Fluttertoast.showToast(
                                     msg: "Username Tidak Terdaftar",
                                     toastLength: Toast.LENGTH_SHORT,

@@ -1,9 +1,14 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
 
 class ReactionTimeApp extends StatefulWidget {
+  const ReactionTimeApp({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ReactionTimeAppState createState() => _ReactionTimeAppState();
 }
 
@@ -11,6 +16,7 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
   Color _screenColor = Colors.grey;
   late Timer _timer;
   DateTime? _startTime;
+  // ignore: prefer_final_fields
   List<int> _reactionTimes = [];
   bool _waitingForTap = false;
   bool _gameStarted = false;
@@ -45,14 +51,14 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: Text('Reaction Time'),
+        title: const Text('Reaction Time'),
         content: Text('$reactionTime ms'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Next Round'),
+            child: const Text('Next Round'),
           ),
         ],
       ),
@@ -76,7 +82,7 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reaction Time Tester'),
+        title: const Text('Reaction Time Tester'),
       ),
       body: GestureDetector(
         onTap: _handleTap,
@@ -89,9 +95,9 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
                 if (_reactionTimes.isNotEmpty) ...[
                   Text(
                     'Average Reaction Time: ${_calculateAverage().toStringAsFixed(2)} ms',
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
                 Text(
                   _gameStarted
@@ -99,14 +105,14 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
                           ? 'Tap Now!'
                           : 'Wait for the screen to turn green!')
                       : 'Tekan tombol untuk memulai ronde',
-                  style: TextStyle(fontSize: 18),
+                  style: const TextStyle(fontSize: 18),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 // <-------- Button will disappear after the game starts
                 if (!_gameStarted) ...[
                   ElevatedButton(
                     onPressed: _startRound,
-                    child: Text('Start Round'),
+                    child: const Text('Start Round'),
                   ),
                 ],
               ],

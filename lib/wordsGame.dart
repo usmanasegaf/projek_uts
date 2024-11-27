@@ -1,14 +1,17 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_fireworks/flutter_fireworks.dart';
 
-class GameScreen extends StatefulWidget {
-  const GameScreen({super.key});
+class WordsGameScreen extends StatefulWidget {
+  const WordsGameScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _GameScreenState createState() => _GameScreenState();
 }
 
-class _GameScreenState extends State<GameScreen> {
+class _GameScreenState extends State<WordsGameScreen> {
   final List<Map<String, String>> questions = [
     {"hint": "Ibu kota Indonesia", "answer": "Jakarta"},
     {
@@ -44,22 +47,18 @@ class _GameScreenState extends State<GameScreen> {
       const Color(0xFFFF4C40), // Coral
       const Color(0xFF6347A6), // Purple Haze
       const Color(0xFF7FB13B), // Greenery
-      const Color(0xFF82A0D1), // Serenity Blue
-      const Color(0xFFF7B3B2), // Rose Quartz
       const Color(0xFF864542), // Marsala
       const Color(0xFFB04A98), // Orchid
       const Color(0xFF008F6C), // Sea Green
-      const Color(0xFFFFD033), // Pastel Yellow
-      const Color(0xFFFF6F7C), // Pink Grapefruit
     ],
     // The fastest explosion in seconds
     minExplosionDuration: 0.5,
     // The slowest explosion in seconds
-    maxExplosionDuration: 3.5,
+    maxExplosionDuration: 2.5,
     // The minimum number of particles in an explosion
-    minParticleCount: 125,
+    minParticleCount: 80,
     // The maximum number of particles in an explosion
-    maxParticleCount: 275,
+    maxParticleCount: 150,
     // The duration for particles to fade out in seconds
     fadeOutDuration: 0.4,
   );

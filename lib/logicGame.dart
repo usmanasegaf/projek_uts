@@ -1,7 +1,12 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class LogicGame extends StatefulWidget {
+  const LogicGame({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LogicGameState createState() => _LogicGameState();
 }
 
@@ -84,7 +89,7 @@ class _LogicGameState extends State<LogicGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Permainan Logika'),
+        title: const Text('Permainan Logika'),
       ),
       body: gameFinished
           ? Center(
@@ -92,19 +97,19 @@ class _LogicGameState extends State<LogicGame> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Permainan Selesai!',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     'Skor Anda: ${score * 10}/${questions.length * 10}',
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: restartGame,
-                    child: Text('Mulai Lagi'),
+                    child: const Text('Mulai Lagi'),
                   ),
                 ],
               ),
@@ -116,10 +121,10 @@ class _LogicGameState extends State<LogicGame> {
                 children: [
                   Text(
                     questions[currentQuestionIndex]['question'],
-                    style: TextStyle(fontSize: 20),
+                    style: const TextStyle(fontSize: 20),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -127,14 +132,14 @@ class _LogicGameState extends State<LogicGame> {
                         padding: const EdgeInsets.all(10.0),
                         child: ElevatedButton(
                           onPressed: () => checkAnswer(true),
-                          child: Text('Benar'),
+                          child: const Text('Benar'),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: ElevatedButton(
                           onPressed: () => checkAnswer(false),
-                          child: Text('Salah'),
+                          child: const Text('Salah'),
                         ),
                       ),
                     ],

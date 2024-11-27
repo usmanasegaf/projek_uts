@@ -18,14 +18,17 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: 'Permainan Logika',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginPage(),
+      home: const LoginPage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class MainNavigation extends StatefulWidget {
+  const MainNavigation({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MainNavigationState createState() => _MainNavigationState();
 }
 
@@ -42,10 +45,10 @@ class _MainNavigationState extends State<MainNavigation> {
   void initState() {
     super.initState();
     _pages = [
-      LogicGame(),
-      ReactionTimeApp(),
-      MathGameApp(),
-      GameScreen(),
+      const LogicGame(),
+      const ReactionTimeApp(),
+      const MathGameApp(),
+      const WordsGameScreen(),
       MemoryGamePage(key: memoryGameKey), // <--- Gunakan key unik
     ];
   }

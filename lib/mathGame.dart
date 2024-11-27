@@ -1,22 +1,29 @@
+// ignore_for_file: library_private_types_in_public_api, file_names
+
 import 'package:flutter/material.dart';
 
 import 'dart:async';
 import 'dart:math';
 
 class MathGameApp extends StatelessWidget {
+  const MathGameApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MathGameScreen();
+    return const MathGameScreen();
   }
 }
 
 class MathGameScreen extends StatefulWidget {
+  const MathGameScreen({super.key});
+
   @override
   _MathGameScreenState createState() => _MathGameScreenState();
 }
 
 class _MathGameScreenState extends State<MathGameScreen> {
   int _score = 0;
+  // ignore: prefer_final_fields
   int _timePerQuestion = 10; // waktu untuk menjawab setiap soal dalam detik
   int _currentTime = 10;
   late Timer _timer;
@@ -26,6 +33,7 @@ class _MathGameScreenState extends State<MathGameScreen> {
   late String _operator;
   late int _correctAnswer;
 
+  // ignore: prefer_final_fields
   TextEditingController _answerController = TextEditingController();
 
   @override
@@ -43,7 +51,7 @@ class _MathGameScreenState extends State<MathGameScreen> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_currentTime > 0) {
           _currentTime--;
@@ -106,7 +114,7 @@ class _MathGameScreenState extends State<MathGameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Permainan Matematika Cepat'),
+        title: const Text('Permainan Matematika Cepat'),
         centerTitle: true,
       ),
       body: Padding(
@@ -116,39 +124,39 @@ class _MathGameScreenState extends State<MathGameScreen> {
           children: [
             Text(
               'Waktu Tersisa: $_currentTime detik',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
               'Skor: $_score',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Text(
               '$_number1 $_operator $_number2 = ?',
-              style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
               controller: _answerController,
               keyboardType: TextInputType.number,
               textAlign: TextAlign.center,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Masukkan jawaban',
                 border: OutlineInputBorder(),
               ),
               onSubmitted: (_) => _checkAnswer(),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _checkAnswer,
-              child: Text('Kirim Jawaban'),
+              child: const Text('Kirim Jawaban'),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             if (_currentTime == 0)
               ElevatedButton(
                 onPressed: _resetGame,
-                child: Text('Main Lagi'),
+                child: const Text('Main Lagi'),
               ),
           ],
         ),
