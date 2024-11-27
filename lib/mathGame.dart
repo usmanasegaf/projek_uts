@@ -24,8 +24,8 @@ class MathGameScreen extends StatefulWidget {
 class _MathGameScreenState extends State<MathGameScreen> {
   int _score = 0;
   // ignore: prefer_final_fields
-  int _timePerQuestion = 10; // waktu untuk menjawab setiap soal dalam detik
-  int _currentTime = 10;
+  int _timePerQuestion = 6; // waktu untuk menjawab setiap soal dalam detik
+  int _currentTime = 6;
   late Timer _timer;
 
   late int _number1;
@@ -37,6 +37,7 @@ class _MathGameScreenState extends State<MathGameScreen> {
   TextEditingController _answerController = TextEditingController();
 
   bool _gameStarted = false; // Flag untuk menandakan permainan telah dimulai
+  int _questionCount = 0; // Variabel untuk menghitung jumlah soal yang dijawab
 
   @override
   void initState() {
@@ -95,18 +96,31 @@ class _MathGameScreenState extends State<MathGameScreen> {
       }
     }
 
-    // Reset timer dan generate soal baru
-    _answerController.clear();
-    _generateQuestion();
+    // Increment the question count
     setState(() {
-      _currentTime = _timePerQuestion;
+      _questionCount++;
     });
+
+    // Stop the game after 10 questions
+    if (_questionCount >= 10) {
+      _timer.cancel();
+      _showScoreDialog(); // Show the score dialog
+    } else {
+      // Reset timer dan generate soal baru
+      _answerController.clear();
+      _generateQuestion();
+      setState(() {
+        _currentTime = _timePerQuestion;
+      });
+    }
   }
 
   void _resetGame() {
     setState(() {
       _score = 0;
+      _startTimer();
       _currentTime = _timePerQuestion;
+      _questionCount = 0; // Reset question count
     });
     _generateQuestion();
   }
@@ -116,6 +130,27 @@ class _MathGameScreenState extends State<MathGameScreen> {
       _gameStarted = true; // Mulai permainan
     });
     _startTimer(); // Mulai timer
+  }
+
+  void _showScoreDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Permainan Selesai'),
+          content: Text('Skor Anda: $_score'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                _resetGame(); // Reset game after showing score
+              },
+              child: const Text('Main Lagi'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -176,11 +211,6 @@ class _MathGameScreenState extends State<MathGameScreen> {
                   child: const Text('Kirim Jawaban'),
                 ),
                 const SizedBox(height: 40),
-                if (_currentTime == 0)
-                  ElevatedButton(
-                    onPressed: _resetGame,
-                    child: const Text('Main Lagi'),
-                  ),
               ]
             ],
           ),
