@@ -1,22 +1,5 @@
-import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-
-class MemoryGameApp extends StatelessWidget {
-  const MemoryGameApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Permainan Memori',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
-      home: const MemoryGamePage(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
 
 class MemoryGamePage extends StatefulWidget {
   const MemoryGamePage({super.key});
@@ -30,8 +13,8 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
   int currentLevel = 1;
   int userIndex = 0;
   bool isUserTurn = false;
-  bool showSequence = false; // <--- Default adalah false
-  bool gameStarted = false; // <--- Flag untuk kontrol tombol "Start Game"
+  bool showSequence = false;
+  bool gameStarted = false;
 
   void startNewLevel() {
     setState(() {
@@ -41,11 +24,13 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
       sequence.add(Random().nextInt(9));
     });
 
-    Future.delayed(Duration(seconds: currentLevel + 1), () {
-      setState(() {
-        showSequence = false;
-        isUserTurn = true;
-      });
+    Future.delayed(Duration(seconds: 2), () {
+      if (mounted) {
+        setState(() {
+          showSequence = false;
+          isUserTurn = true;
+        });
+      }
     });
   }
 
@@ -65,12 +50,12 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
         context: context,
         builder: (_) => AlertDialog(
           title: const Text('Game Over'),
-          content: Text('Skor Anda: $currentLevel'),
+          content: Text('Skor Anda: ${currentLevel - 1}'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                resetGame();
+                restartGame();
               },
               child: const Text('Main Lagi'),
             ),
@@ -80,17 +65,21 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
     }
   }
 
-  void resetGame() {
+  void restartGame() {
+    // Hanya me-*reset* permainan tanpa memengaruhi navigasi
     setState(() {
       sequence.clear();
       currentLevel = 1;
-      gameStarted = false; // <--- Reset flag saat game diulang
+      userIndex = 0;
+      isUserTurn = false;
+      showSequence = false;
+      gameStarted = false;
     });
   }
 
   void startGame() {
     setState(() {
-      gameStarted = true; // <--- Set flag menjadi true saat tombol ditekan
+      gameStarted = true;
     });
     startNewLevel();
   }
@@ -106,7 +95,6 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (!gameStarted) ...[
-              // <--- Tombol hanya muncul sebelum game dimulai
               ElevatedButton(
                 onPressed: startGame,
                 child: const Text('Start Game'),
