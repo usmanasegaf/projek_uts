@@ -35,9 +35,9 @@ class MainNavigation extends StatefulWidget {
 class _MainNavigationState extends State<MainNavigation> {
   int _selectedIndex = 0;
 
-  // State untuk mengganti halaman MemoryGame
+  // State untuk mengganti halaman
   Key memoryGameKey = UniqueKey();
-
+  Key mathGameKey = UniqueKey();
   // List of pages
   late List<Widget> _pages;
 
@@ -47,7 +47,7 @@ class _MainNavigationState extends State<MainNavigation> {
     _pages = [
       const LogicGame(),
       const ReactionTimeApp(),
-      const MathGameApp(),
+      MathGameApp(key: mathGameKey),
       const WordsGameScreen(),
       MemoryGamePage(key: memoryGameKey), // <--- Gunakan key unik
     ];
@@ -57,6 +57,13 @@ class _MainNavigationState extends State<MainNavigation> {
     setState(() {
       memoryGameKey = UniqueKey(); // Membuat key baru untuk rebuild halaman
       _pages[4] = MemoryGamePage(key: memoryGameKey); // Reset halaman
+    });
+  }
+
+  void resetMathGameApp() {
+    setState(() {
+      mathGameKey = UniqueKey();
+      _pages[2] = MathGameApp(key: mathGameKey);
     });
   }
 
@@ -71,9 +78,6 @@ class _MainNavigationState extends State<MainNavigation> {
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
         onTap: (int index) {
-          if (index == 4) {
-            resetMemoryGamePage(); // Reset saat MemoryGame dipilih ulang
-          }
           setState(() {
             _selectedIndex = index;
           });

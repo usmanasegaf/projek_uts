@@ -36,11 +36,12 @@ class _MathGameScreenState extends State<MathGameScreen> {
   // ignore: prefer_final_fields
   TextEditingController _answerController = TextEditingController();
 
+  bool _gameStarted = false; // Flag untuk menandakan permainan telah dimulai
+
   @override
   void initState() {
     super.initState();
     _generateQuestion();
-    _startTimer();
   }
 
   @override
@@ -110,55 +111,79 @@ class _MathGameScreenState extends State<MathGameScreen> {
     _generateQuestion();
   }
 
+  void _startGame() {
+    setState(() {
+      _gameStarted = true; // Mulai permainan
+    });
+    _startTimer(); // Mulai timer
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Permainan Matematika Cepat'),
-        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Waktu Tersisa: $_currentTime detik',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Skor: $_score',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 40),
-            Text(
-              '$_number1 $_operator $_number2 = ?',
-              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              controller: _answerController,
-              keyboardType: TextInputType.number,
-              textAlign: TextAlign.center,
-              decoration: const InputDecoration(
-                hintText: 'Masukkan jawaban',
-                border: OutlineInputBorder(),
-              ),
-              onSubmitted: (_) => _checkAnswer(),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _checkAnswer,
-              child: const Text('Kirim Jawaban'),
-            ),
-            const SizedBox(height: 40),
-            if (_currentTime == 0)
-              ElevatedButton(
-                onPressed: _resetGame,
-                child: const Text('Main Lagi'),
-              ),
-          ],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if (!_gameStarted) ...[
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text("Ketuk Tombol untuk Memulai Game"),
+                ),
+                ElevatedButton(
+                  onPressed: _startGame,
+                  child: const Text('Start Game'),
+                ),
+              ] else ...[
+                // Tampilan permainan setelah game dimulai
+                Text(
+                  'Waktu Tersisa: $_currentTime detik',
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  'Skor: $_score',
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 40),
+                Text(
+                  '$_number1 $_operator $_number2 = ?',
+                  style: const TextStyle(
+                      fontSize: 32, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 20),
+                TextField(
+                  controller: _answerController,
+                  keyboardType: TextInputType.number,
+                  textAlign: TextAlign.center,
+                  decoration: const InputDecoration(
+                    hintText: 'Masukkan jawaban',
+                    border: OutlineInputBorder(),
+                  ),
+                  onSubmitted: (_) => _checkAnswer(),
+                ),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _checkAnswer,
+                  child: const Text('Kirim Jawaban'),
+                ),
+                const SizedBox(height: 40),
+                if (_currentTime == 0)
+                  ElevatedButton(
+                    onPressed: _resetGame,
+                    child: const Text('Main Lagi'),
+                  ),
+              ]
+            ],
+          ),
         ),
       ),
     );

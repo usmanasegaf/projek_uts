@@ -97,6 +97,10 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (!gameStarted) ...[
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("Ketuk Tombol untuk Memulai Game"),
+              ),
               ElevatedButton(
                 onPressed: startGame,
                 child: const Text('Start Game'),
