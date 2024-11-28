@@ -22,6 +22,7 @@ class MathGameScreen extends StatefulWidget {
 
 class _MathGameScreenState extends State<MathGameScreen> {
   int _score = 0;
+  // ignore: prefer_final_fields
   int _timePerQuestion = 5; // waktu untuk menjawab setiap soal dalam detik
   int _currentTime = 5;
   late Timer _timer;
@@ -31,6 +32,7 @@ class _MathGameScreenState extends State<MathGameScreen> {
   late String _operator;
   late int _correctAnswer;
 
+  // ignore: prefer_final_fields
   TextEditingController _answerController = TextEditingController();
 
   bool _gameStarted = false; // Flag untuk menandakan permainan telah dimulai

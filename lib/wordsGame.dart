@@ -51,15 +51,10 @@ class _GameScreenState extends State<WordsGameScreen> {
       const Color(0xFFB04A98), // Orchid
       const Color(0xFF008F6C), // Sea Green
     ],
-    // The fastest explosion in seconds
     minExplosionDuration: 0.5,
-    // The slowest explosion in seconds
     maxExplosionDuration: 2.5,
-    // The minimum number of particles in an explosion
     minParticleCount: 80,
-    // The maximum number of particles in an explosion
     maxParticleCount: 150,
-    // The duration for particles to fade out in seconds
     fadeOutDuration: 0.4,
   );
 
@@ -79,10 +74,8 @@ class _GameScreenState extends State<WordsGameScreen> {
 
         Future.delayed(const Duration(seconds: 2));
         fireworksController.fireMultipleRockets(
-          // Fire a random number of rockets between 5 and 20
           minRockets: 5,
           maxRockets: 8,
-          // Fire all the rockets within this launch window
           launchWindow: const Duration(milliseconds: 400),
         );
       });
@@ -98,12 +91,34 @@ class _GameScreenState extends State<WordsGameScreen> {
     if (currentQuestionIndex >= questions.length) {
       return Scaffold(
         appBar: AppBar(title: const Text("Tebak Kata")),
-        body: const Center(
-            child: Text(
-          "Permainan selesai! Selamat!",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        )),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+              decoration: BoxDecoration(
+                color: Colors.greenAccent,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 8,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Text(
+                "Permainan selesai! Selamat!",
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+        ),
       );
     }
 
