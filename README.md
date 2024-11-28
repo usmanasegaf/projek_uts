@@ -86,3 +86,11 @@ Lalu ada wordgame atau tebak kata, dimana pemain harus menebak kata untuk mencap
 <img src="https://github.com/user-attachments/assets/928ed677-6ac6-4ec1-b7dd-ec5244cb2fd0" width="250" />
 
 Terakhir ada memory game, dimana pemain harus mengingat nomer dalam 1,3 detik, semakin naik level semakin panjang nomer sedang waktu tetap sama, pada akhirnya pemain akan salah lalu akan gameover, setelah itu skor akan ditunjukan, jika menekan main lagi maka akan diarahkan ke page pertama lagi, untuk game sebelumnya yang memiliki tombol main lagi pun sama.
+
+Lalu ada demo berikut apabila ada beberapa hal yang terlewat pada penjelasan screenshot:
+
+https://github.com/user-attachments/assets/fa2d8f4a-4271-4e64-b813-d6e12e6ecc03
+
+vidio disini dalam bentuk compress sehingga gambar mungkin sedikit patah patah, namun grafis asli jauh lebih baik, seperti di screenshot
+
+
