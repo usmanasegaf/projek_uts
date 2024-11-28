@@ -99,7 +99,10 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
             if (!gameStarted) ...[
               const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Text("Ketuk Tombol untuk Memulai Game"),
+                child: Text(
+                  "Tekan Tombol untuk Memulai Game",
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               ElevatedButton(
                 onPressed: startGame,
@@ -122,14 +125,19 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
                 style: TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 10),
-              Wrap(
-                spacing: 10,
-                children: List.generate(10, (index) {
-                  return ElevatedButton(
-                    onPressed: () => onUserInput(index),
-                    child: Text('$index'),
-                  );
-                }),
+              Center(
+                child: Wrap(
+                  spacing: 10,
+                  children: List.generate(10, (index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: ElevatedButton(
+                        onPressed: () => onUserInput(index),
+                        child: Text('$index'),
+                      ),
+                    );
+                  }),
+                ),
               ),
             ]
           ],

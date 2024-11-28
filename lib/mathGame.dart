@@ -169,7 +169,10 @@ class _MathGameScreenState extends State<MathGameScreen> {
               if (!_gameStarted) ...[
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text("Ketuk Tombol untuk Memulai Game"),
+                  child: Text(
+                    "Tekan Tombol untuk Memulai Game",
+                    style: const TextStyle(fontSize: 18),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: _startGame,

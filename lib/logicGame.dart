@@ -59,6 +59,50 @@ class _LogicGameState extends State<LogicGame> {
       'question': 'Semua bilangan ganjil adalah bilangan komposit.',
       'answer': false,
     },
+    {
+      'question':
+          'Jika 10 lebih besar dari 5 dan 5 lebih besar dari 0, maka 10 lebih besar dari 0.',
+      'answer': true,
+    },
+    {
+      'question': 'Semua bilangan negatif adalah bilangan prima.',
+      'answer': false,
+    },
+    {
+      'question':
+          'Bilangan prima hanya bisa dibagi oleh 1 dan dirinya sendiri.',
+      'answer': true,
+    },
+    {
+      'question':
+          'Jika A adalah bilangan ganjil dan B adalah bilangan ganjil, maka A + B adalah bilangan ganjil.',
+      'answer': false,
+    },
+    {
+      'question': 'Angka 1 adalah bilangan prima.',
+      'answer': false,
+    },
+    {
+      'question':
+          'Semua bilangan genap lebih besar dari 1 adalah bilangan prima.',
+      'answer': false,
+    },
+    {
+      'question': 'Jumlah dari dua bilangan genap selalu genap.',
+      'answer': true,
+    },
+    {
+      'question': 'Jumlah dari dua bilangan ganjil selalu ganjil.',
+      'answer': false,
+    },
+    {
+      'question': 'Angka 3 adalah bilangan prima.',
+      'answer': true,
+    },
+    {
+      'question': 'Jika A > B dan B > C, maka A < C.',
+      'answer': false,
+    },
   ];
 
   void checkAnswer(bool userAnswer) {
@@ -66,7 +110,7 @@ class _LogicGameState extends State<LogicGame> {
       score++;
     }
 
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < 9) {
       setState(() {
         currentQuestionIndex++;
       });
@@ -79,6 +123,8 @@ class _LogicGameState extends State<LogicGame> {
 
   void restartGame() {
     setState(() {
+      // Acak urutan soal
+      questions.shuffle();
       currentQuestionIndex = 0;
       score = 0;
       gameFinished = false;
@@ -89,7 +135,11 @@ class _LogicGameState extends State<LogicGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Permainan Logika'),
+        backgroundColor: Colors.teal,
+        title: const Text(
+          'Permainan Logika',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
       ),
       body: gameFinished
           ? Center(
@@ -97,19 +147,38 @@ class _LogicGameState extends State<LogicGame> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const Icon(
+                    Icons.done_all,
+                    size: 80,
+                    color: Colors.green,
+                  ),
+                  const SizedBox(height: 20),
                   const Text(
                     'Permainan Selesai!',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Skor Anda: ${score * 10}/${questions.length * 10}',
+                    'Skor Anda: ${score * 10}/100',
                     style: const TextStyle(fontSize: 20),
                   ),
                   const SizedBox(height: 20),
-                  ElevatedButton(
+                  ElevatedButton.icon(
                     onPressed: restartGame,
-                    child: const Text('Mulai Lagi'),
+                    icon: const Icon(
+                      Icons.refresh,
+                      color: Colors.white,
+                    ),
+                    label: const Text(
+                      'Mulai Lagi',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.teal,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                    ),
                   ),
                 ],
               ),
@@ -121,7 +190,11 @@ class _LogicGameState extends State<LogicGame> {
                 children: [
                   Text(
                     questions[currentQuestionIndex]['question'],
-                    style: const TextStyle(fontSize: 20),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueAccent,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 20),
@@ -130,16 +203,44 @@ class _LogicGameState extends State<LogicGame> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: ElevatedButton(
+                        child: ElevatedButton.icon(
                           onPressed: () => checkAnswer(true),
-                          child: const Text('Benar'),
+                          icon: const Icon(
+                            Icons.check_circle_outline,
+                            color: Colors.white,
+                          ),
+                          label: const Text(
+                            'Benar',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                          ),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: ElevatedButton(
+                        child: ElevatedButton.icon(
                           onPressed: () => checkAnswer(false),
-                          child: const Text('Salah'),
+                          icon: const Icon(
+                            Icons.cancel_outlined,
+                            color: Colors.white,
+                          ),
+                          label: const Text(
+                            'Salah',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 10),
+                          ),
                         ),
                       ),
                     ],

@@ -13,7 +13,7 @@ class ReactionTimeApp extends StatefulWidget {
 }
 
 class _ReactionTimeAppState extends State<ReactionTimeApp> {
-  Color _screenColor = Colors.grey;
+  Color _screenColor = Color.fromARGB(255, 119, 255, 255);
   late Timer _timer;
   DateTime? _startTime;
   // ignore: prefer_final_fields
@@ -34,7 +34,7 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
     }
 
     setState(() {
-      _screenColor = Colors.grey;
+      _screenColor = Color.fromARGB(255, 119, 255, 255);
       _waitingForTap = false;
       _gameStarted = true;
     });
@@ -43,7 +43,7 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
 
     _timer = Timer(Duration(milliseconds: delay), () {
       setState(() {
-        _screenColor = Colors.green;
+        _screenColor = const Color.fromARGB(255, 80, 207, 75);
         _startTime = DateTime.now();
         _waitingForTap = true;
       });
@@ -89,7 +89,7 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
       _reactionTimes.clear();
       _gameFinished = false;
       _gameStarted = false;
-      _screenColor = Colors.grey;
+      _screenColor = const Color.fromARGB(255, 119, 255, 255);
     });
   }
 
@@ -103,7 +103,7 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reaction Time Tester'),
+        title: const Text('Permainan Reaction Time'),
       ),
       body: GestureDetector(
         onTap: _handleTap,
