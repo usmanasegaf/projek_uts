@@ -69,6 +69,14 @@ Jika benar dan masuk maka akan logic game, logic game berisi tentang pertanyaan 
 
 Setelah itu ada reaction time game, yang dimana akan mengukur kecepatan reaksi, nah screenshot diatas karna sambil screenshot maka reaksinya lambat, pada normalnya pengguna bisa menghasilkan 200-300ms rata rata. test dalam game akan dilakukan 5 kali dan setelahnya akan ditunjukan rata ratanya
 
+<img src="https://github.com/user-attachments/assets/8e570092-9310-475a-8299-6f83642b4559" width="300" />
+<img src="https://github.com/user-attachments/assets/c0dbf6fb-eb96-464f-bb39-b7bed449890c" width="300" />
+<img src="https://github.com/user-attachments/assets/fae0bb0e-d8b8-4564-b0ae-d81f2ebcdb7c" width="300" />
+
+Selanjutnya ada math game yang akan menampilkan pertanyaan matematika mudah namun harus dijawab dalam 5 detik, akan ada 10 pertanyaan acak dan pada akhir akan dihitung skor, jika tekan main lagi akan dikembalikan ke state awal seperti ss 1
+
+
+
 
 
 
