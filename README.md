@@ -24,15 +24,15 @@ Login Page, Logic Game Page, Bug Fix
 
 Reaction Time Game
 
-- #### Saeful 
+- #### Saeful :
 
-Words Game Page
+Words Game Page 
 
-- #### Irwan Kurniawan
+- #### Irwan Kurniawan :
 
 Math Game Page
 
-- #### Ismi
+- #### Ismi :
 
 Memory game page
 
