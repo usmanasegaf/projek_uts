@@ -8,7 +8,7 @@
 
 - Mohammad Usman Asegaf - 21552011174
 
-- Syamsu Nuryaman
+- Muhamad Syamsu Nuryaman - 22552012035
 
 - Saeful
 
