@@ -20,8 +20,19 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
   List<int> _reactionTimes = [];
   bool _waitingForTap = false;
   bool _gameStarted = false;
+  bool _gameFinished = false; // <--- Flag untuk menandai akhir permainan
 
   void _startRound() {
+    if (_reactionTimes.length == 5) {
+      // <--- Cek apakah sudah 5 ronde selesai
+      setState(() {
+        _gameFinished = true; // Tandai bahwa game selesai
+        _gameStarted = false;
+        _waitingForTap = false;
+      });
+      return;
+    }
+
     setState(() {
       _screenColor = Colors.grey;
       _waitingForTap = false;
@@ -42,7 +53,8 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
   void _handleTap() {
     if (!_waitingForTap) return;
 
-    final reactionTime = DateTime.now().difference(_startTime!).inMilliseconds;
+    final reactionTime =
+        DateTime.now().difference(_startTime!).inMilliseconds - 80;
     setState(() {
       _reactionTimes.add(reactionTime);
       _waitingForTap = false;
@@ -72,6 +84,15 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
     return _reactionTimes.reduce((a, b) => a + b) / _reactionTimes.length;
   }
 
+  void _restartGame() {
+    setState(() {
+      _reactionTimes.clear();
+      _gameFinished = false;
+      _gameStarted = false;
+      _screenColor = Colors.grey;
+    });
+  }
+
   @override
   void dispose() {
     _timer.cancel();
@@ -99,20 +120,32 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
                   ),
                   const SizedBox(height: 20),
                 ],
-                Text(
-                  _gameStarted
-                      ? (_waitingForTap
-                          ? 'Tap Now!'
-                          : 'Wait for the screen to turn green!')
-                      : 'Tekan tombol untuk memulai ronde',
-                  style: const TextStyle(fontSize: 18),
-                ),
-                const SizedBox(height: 20),
-                // <-------- Button will disappear after the game starts
-                if (!_gameStarted) ...[
+                if (!_gameFinished) ...[
+                  Text(
+                    _gameStarted
+                        ? (_waitingForTap
+                            ? 'Tap Now!'
+                            : 'Wait for the screen to turn green!')
+                        : 'Tekan tombol untuk memulai ronde',
+                    style: const TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 20),
+                  if (!_gameStarted) ...[
+                    ElevatedButton(
+                      onPressed: _startRound,
+                      child: const Text('Start Round'),
+                    ),
+                  ],
+                ] else ...[
+                  // <--- Tombol 'Main Lagi' setelah 5 ronde
+                  const Text(
+                    'Permainan Selesai!',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(height: 10),
                   ElevatedButton(
-                    onPressed: _startRound,
-                    child: const Text('Start Round'),
+                    onPressed: _restartGame,
+                    child: const Text('Main Lagi'),
                   ),
                 ],
               ],

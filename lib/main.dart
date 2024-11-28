@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Permainan Logika',
+      title: 'Brain Games',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const LoginPage(),
       debugShowCheckedModeBanner: false,

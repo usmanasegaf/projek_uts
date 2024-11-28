@@ -81,7 +81,7 @@ class _GameScreenState extends State<WordsGameScreen> {
         fireworksController.fireMultipleRockets(
           // Fire a random number of rockets between 5 and 20
           minRockets: 5,
-          maxRockets: 10,
+          maxRockets: 8,
           // Fire all the rockets within this launch window
           launchWindow: const Duration(milliseconds: 400),
         );
