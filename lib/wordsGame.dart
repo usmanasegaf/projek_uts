@@ -108,7 +108,12 @@ class _GameScreenState extends State<WordsGameScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Tebak Kata")),
+      appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 53, 197, 65),
+          title: const Text(
+            "Tebak Kata",
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+          )),
       body: Stack(
         children: [
           Padding(
@@ -138,9 +143,10 @@ class _GameScreenState extends State<WordsGameScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                ElevatedButton(
+                ElevatedButton.icon(
                   onPressed: checkAnswer,
-                  child: const Text("Submit"),
+                  icon: const Icon(Icons.play_arrow), // Menambahkan ikon play
+                  label: const Text("Submit"),
                 ),
                 const SizedBox(height: 20),
                 Text(

@@ -90,7 +90,11 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Permainan Memori'),
+        backgroundColor: const Color.fromARGB(255, 255, 127, 7),
+        title: const Text(
+          'Permainan Memori',
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+        ),
       ),
       body: Center(
         child: Column(
@@ -101,7 +105,7 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Tekan Tombol untuk Memulai Game",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18, color: Colors.blueAccent),
                 ),
               ),
               ElevatedButton(
@@ -111,18 +115,21 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
             ] else if (showSequence) ...[
               const Text(
                 'Ingat Urutan Ini:',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               Text(
                 sequence.join(' '),
-                style:
-                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.deepPurple,
+                ),
               ),
             ] else if (isUserTurn) ...[
               const Text(
                 'Masukkan Urutan:',
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 10),
               Center(
@@ -137,6 +144,17 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
                       ),
                     );
                   }),
+                ),
+              ),
+            ],
+            if (gameStarted) ...[
+              const SizedBox(height: 20),
+              Text(
+                'Level: $currentLevel',
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.green,
                 ),
               ),
             ]

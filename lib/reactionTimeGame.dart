@@ -8,7 +8,6 @@ class ReactionTimeApp extends StatefulWidget {
   const ReactionTimeApp({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _ReactionTimeAppState createState() => _ReactionTimeAppState();
 }
 
@@ -16,17 +15,15 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
   Color _screenColor = Color.fromARGB(255, 119, 255, 255);
   late Timer _timer;
   DateTime? _startTime;
-  // ignore: prefer_final_fields
   List<int> _reactionTimes = [];
   bool _waitingForTap = false;
   bool _gameStarted = false;
-  bool _gameFinished = false; // <--- Flag untuk menandai akhir permainan
+  bool _gameFinished = false;
 
   void _startRound() {
     if (_reactionTimes.length == 5) {
-      // <--- Cek apakah sudah 5 ronde selesai
       setState(() {
-        _gameFinished = true; // Tandai bahwa game selesai
+        _gameFinished = true;
         _gameStarted = false;
         _waitingForTap = false;
       });
@@ -103,7 +100,11 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Permainan Reaction Time'),
+        title: const Text(
+          'Permainan Reaction Time',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.deepPurple,
       ),
       body: GestureDetector(
         onTap: _handleTap,
@@ -127,25 +128,27 @@ class _ReactionTimeAppState extends State<ReactionTimeApp> {
                             ? 'Tap Now!'
                             : 'Wait for the screen to turn green!')
                         : 'Tekan tombol untuk memulai ronde',
-                    style: const TextStyle(fontSize: 18),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 20),
                   if (!_gameStarted) ...[
-                    ElevatedButton(
+                    ElevatedButton.icon(
                       onPressed: _startRound,
-                      child: const Text('Start Round'),
+                      icon: const Icon(Icons.play_arrow),
+                      label: const Text('Start Round'),
                     ),
                   ],
                 ] else ...[
-                  // <--- Tombol 'Main Lagi' setelah 5 ronde
                   const Text(
                     'Permainan Selesai!',
                     style: TextStyle(fontSize: 18),
                   ),
                   const SizedBox(height: 10),
-                  ElevatedButton(
+                  ElevatedButton.icon(
                     onPressed: _restartGame,
-                    child: const Text('Main Lagi'),
+                    icon: const Icon(Icons.refresh),
+                    label: const Text('Main Lagi'),
                   ),
                 ],
               ],

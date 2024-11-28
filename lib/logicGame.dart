@@ -207,18 +207,12 @@ class _LogicGameState extends State<LogicGame> {
                           onPressed: () => checkAnswer(true),
                           icon: const Icon(
                             Icons.check_circle_outline,
-                            color: Colors.white,
                           ),
                           label: const Text(
                             'Benar',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -228,18 +222,12 @@ class _LogicGameState extends State<LogicGame> {
                           onPressed: () => checkAnswer(false),
                           icon: const Icon(
                             Icons.cancel_outlined,
-                            color: Colors.white,
                           ),
                           label: const Text(
                             'Salah',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
