@@ -1,6 +1,6 @@
 # PROJEK UTS PEMROGRAMAN MOBILE 2
 
-### BRAIN GAMES
+## BRAIN GAMES
 
 #### Kelompok:
 
@@ -18,15 +18,15 @@
 ### Jobdesc
 - #### Mohammad Usman Asegaf :
 
-Login Page, Logic Game Page, Bug Fix, Dekor, Anim
+Login Page, Logic Game Page, Bug Fix, Dekor, Anim login, Git1
 
 - #### Muhamad Syamsu Nuryaman :
 
-Reaction Time Game, Resource Search
+Reaction Time Game, Resource Search, Git2
 
 - #### Saeful :
 
-Words Game Page, firework
+Words Game Page, Anim firework
 
 - #### Irwan Kurniawan :
 
@@ -74,6 +74,22 @@ Setelah itu ada reaction time game, yang dimana akan mengukur kecepatan reaksi, 
 <img src="https://github.com/user-attachments/assets/fae0bb0e-d8b8-4564-b0ae-d81f2ebcdb7c" width="300" />
 
 Selanjutnya ada math game yang akan menampilkan pertanyaan matematika mudah namun harus dijawab dalam 5 detik, akan ada 10 pertanyaan acak dan pada akhir akan dihitung skor, jika tekan main lagi akan dikembalikan ke state awal seperti ss 1
+
+<img src="https://github.com/user-attachments/assets/f4df3b62-59f9-4c49-88fc-c897393f6846" width="300" />
+<img src="https://github.com/user-attachments/assets/729b7211-08e4-475d-9cdf-8898357c810e" width="300" />
+<img src="https://github.com/user-attachments/assets/0030bdc9-0db8-4a58-b2a4-f759ee2aebb2" width="300" />
+
+Lalu ada wordgame atau tebak kata, dimana pemain harus menebak kata untuk mencapai akhir, setiap benar maka akan ada animasi firework
+
+<img src="https://github.com/user-attachments/assets/1724d678-fbf3-45cd-bcff-2a709f8ec31e" width="300" />
+<img src="https://github.com/user-attachments/assets/ebbe4c49-8ded-4467-8f50-8dbfe147c5ab" width="300" />
+<img src="https://github.com/user-attachments/assets/2603cce6-e440-4389-983d-64d452149605" width="300" />
+<img src="https://github.com/user-attachments/assets/928ed677-6ac6-4ec1-b7dd-ec5244cb2fd0" width="300" />
+
+Terakhir ada memory game, dimana pemain harus mengingat nomer dalam 1,3 detik, semakin naik level semakin panjang nomer sedang waktu tetap sama, pada akhirnya pemain akan salah lalu akan gameover, setelah itu skor akan ditunjukan, jika menekan main lagi maka akan diarankan ke page pertama lagi, untuk game sebelumnya yang memiliki tombol main lagi pun sama.
+
+
+
 
 
 
