@@ -1,8 +1,6 @@
 # PROJEK UTS PEMROGRAMAN MOBILE 2
 
-### MENGGUNAKAN FLUTTER 
-
-#### Seluruh Anggota telah berkontribusi dengan baik dan memiliki kontribusi masing masing khususnya per-page
+### BRAIN GAMES
 
 #### Kelompok:
 
@@ -16,4 +14,28 @@
 
 - Ismi
 ####
+
+### Jobdesc
+- #### Mohammad Usman Asegaf :
+
+Login Page, Logic Game Page, Bug Fix
+
+- #### Muhamad Syamsu Nuryaman :
+
+Reaction Time Game
+
+- #### Saeful 
+
+Words Game Page
+
+- #### Irwan Kurniawan
+
+Math Game Page
+
+- #### Ismi
+
+Memory game page
+
+
+
 
